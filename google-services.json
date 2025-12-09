@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "61325356093",
+    "project_id": "cartle-auction-house",
+    "storage_bucket": "cartle-auction-house.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:61325356093:android:ab3bd6526bdd40cf5f4e54",
+        "android_client_info": {
+          "package_name": "com.richyyyy.sdkdemo"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "61325356093-rj6tq3mdgenk8kvm0bvhf2fvm87k7njt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAIjwynt6FXGfa01B6T3xxLQO2ggiFg1jQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "61325356093-rj6tq3mdgenk8kvm0bvhf2fvm87k7njt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
