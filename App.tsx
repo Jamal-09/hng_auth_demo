@@ -1,7 +1,7 @@
 import { AuthProvider, useAuth } from "ja-auth-sdk";
 import { AuthScreen } from "ja-auth-sdk/ui";
 import React from "react";
-import { Button, StatusBar, StyleSheet, Text, View } from "react-native";
+import { Button, Image, StatusBar, StyleSheet, Text, View } from "react-native";
 
 const authConfig = {
   firebase: {
@@ -39,13 +39,32 @@ const authConfig = {
 
 const AuthenticatedScreen = () => {
   const { user, signOut } = useAuth();
+  console.log("User", user);
 
   return (
     <View style={styles.authenticatedContainer}>
-      <Text style={styles.welcomeText}>Welcome!</Text>
+      <View>
+        {user?.photoURL ? (
+          <Image
+            source={{ uri: user?.photoURL as string }}
+            width={64}
+            height={64}
+            style={{
+              borderRadius: 32,
+              marginBottom: 12,
+              marginHorizontal: "auto",
+            }}
+          />
+        ) : (
+          <Text>👤</Text>
+        )}
+        <Text style={styles.welcomeText}>Welcome {user?.displayName}!</Text>
+      </View>
       <Text style={styles.emailText}>{user?.email}</Text>
       <Text style={styles.infoText}>UID: {user?.uid}</Text>
-      <Text style={styles.infoText}>Provider: {user?.providerId}</Text>
+      <Text style={[styles.infoText, { marginBottom: 20 }]}>
+        Provider: {user?.providerId}
+      </Text>
       <Button title="Sign Out" onPress={signOut} />
     </View>
   );
@@ -103,14 +122,15 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   welcomeText: {
-    fontSize: 28,
+    textAlign: "center",
+    fontSize: 24,
     fontWeight: "bold",
     marginBottom: 10,
   },
   emailText: {
     fontSize: 18,
     color: "#666",
-    marginBottom: 20,
+    marginBottom: 60,
   },
   infoText: {
     fontSize: 14,
